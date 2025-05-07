@@ -1,15 +1,18 @@
 package com.study.scheduler.domain.scheduler.entity;
 
 import com.study.scheduler.common.entity.BaseEntity;
+import com.study.scheduler.domain.scheduler.dto.request.CreateScheduleRequestDTO;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
+@NoArgsConstructor
 public class Scheduler extends BaseEntity {
 
 	@Id
@@ -21,4 +24,8 @@ public class Scheduler extends BaseEntity {
 	private String content;
 
 
+	public Scheduler(CreateScheduleRequestDTO dto) {
+		this.title = dto.getTitle();
+		this.content = dto.getContent();
+	}
 }
